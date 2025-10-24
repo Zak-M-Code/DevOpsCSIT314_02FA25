@@ -1,0 +1,21 @@
+pipeline {
+	agent any
+	stages {
+		stage('check') {
+			steps {
+				git branch: 'main', url: 'https://github.com/Zak-M-Code/DevOpsCSIT314_02FA25.git'
+			}
+		}
+		stage('build') {
+			steps {
+				sh './mvnw clean package'
+			}
+		}
+		stage('archive') {
+			steps {
+				archive artifacts: 'target/*.jar', fingerpring: true
+			}
+		}
+	}
+}
+

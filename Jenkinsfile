@@ -18,16 +18,16 @@ pipeline {
 				dir('complete') {
 					sh 'test -f ./mvnw && chmod +x ./mvnw || true'
 					sh '''
-						if [ -x ./mvnw ]; then
-							./mvnw clean package
-						elif command -v mvn >/dev/null 2>&1; then
-							mvn clean package
-						elif command -v gradle >/dev/null 2>&1 || [ -f gradlew ]; then
-							./gradlew build
-						else
-							echo "not found" >&2
-							exit 1
-						fi
+if [ -x ./mvnw ]; then
+	./mvnw clean package
+elif command -v mvn >/dev/null 2>&1; then
+	mvn clean package
+elif command -v gradle >/dev/null 2>&1 || [ -f gradlew ]; then
+	./gradlew build
+else
+	echo "not found" >&2
+	exit 1
+fi
 					'''
 				}
 			}

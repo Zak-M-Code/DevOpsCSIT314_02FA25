@@ -5,7 +5,7 @@ pipeline {
 			steps {
 				checkout([$class: 'GitSCM',
 					branches: [[name: '*/main']],
-					userRemoteConfigs: [[url: 'https://github.com/Zak-M-Code/DevOpsCSIT314_02FA25.git', credentialsId: 'GitHub-Access-Token-Midterm']]]
+					userRemoteConfigs: [[url: 'https://github.com/Zak-M-Code/DevOpsCSIT314_02FA25.git', credentialsId: 'GitHub-Access-Token-Midterm']]])
 			}
 		}
 		stage('Prepare') {

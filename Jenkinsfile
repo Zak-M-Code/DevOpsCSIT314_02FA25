@@ -34,7 +34,7 @@ pipeline {
 		}
  		stage('Archive') {
 			steps {
-				archiveArtifacts artifacts: 'complete/target/*.jar', complete/build/libs/*.jar, fingerprint: true
+				archiveArtifacts artifacts: 'complete/target/*.jar',complete/build/libs/*.jar', fingerprint: true
 			 }
 		}
 	}
